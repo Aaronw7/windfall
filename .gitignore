@@ -1,0 +1,24 @@
+# Python virtual environment
+venv/
+
+# Node.js dependencies
+client/node_modules/
+
+# Compiled React files
+client/build/
+
+# Cache and log files
+__pycache__/
+*.log
+
+# Editor files
+.vscode/
+.idea/
+
+# PostgreSQL data directory
+postgresql/data/
+
+# Other project-specific files and directories
+*.flaskenv
+*.env
+*.pyc
