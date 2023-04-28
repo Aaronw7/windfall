@@ -14,7 +14,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Hello!! Edit <code>src/App.js</code> and save to reload.
+          Hello!! Edit <code>src/App.js</code> and save to reload. So I can start changing stuff and it will show up on Docker right?
         </p>
         <a
           className="App-link"
