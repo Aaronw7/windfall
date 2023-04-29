@@ -2,28 +2,25 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 function App() {
-  const [currentTime, setCurrentTime] = useState(0);
+  const [currentProducts, setCurrentProducts] = useState([]);
 
   useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
+    fetch('/products').then(res => res.json()).then(data => {
+      setCurrentProducts(data);
     });
   }, []);
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Hello!! Edit <code>src/App.js</code> and save to reload. So I can start changing stuff and it will show up on Docker right?
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React Now: {currentTime}
-        </a>
+        <h1>
+          Windfall Demo
+        </h1>
+        <ul>
+          {currentProducts && currentProducts.map(product => (
+            <li key={product.id}>{product.name}: {product.price}</li>
+          ))}
+        </ul>
       </header>
     </div>
   );
