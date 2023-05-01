@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
+import { Paper, Button } from '@mui/material'
 
 function App() {
   const [currentProducts, setCurrentProducts] = useState([]);
@@ -11,18 +14,23 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>
-          Windfall Demo
-        </h1>
-        <ul>
-          {currentProducts && currentProducts.map(product => (
-            <li key={product.id}>{product.name}: {product.price}</li>
+    <Container color="text.primary" align="center">
+      <Typography variant="h3" color="text.secondary">
+        Windfall Demo
+      </Typography>
+      <Stack direction="row" spacing={2} sx={{ justifyContent: 'center' }}>
+          {currentProducts && currentProducts.map((item) => (
+            <Paper elevation={3}>
+                <h2>{item.name}</h2>
+                <p>{item.description}</p>
+                <p>{item.price}</p>
+                <Button>
+                    Purchase
+                </Button>
+            </Paper>
           ))}
-        </ul>
-      </header>
-    </div>
+        </Stack>
+    </Container>
   );
 }
 
