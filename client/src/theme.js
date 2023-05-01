@@ -5,14 +5,19 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#556cd6',
-    },
+      main: '#515357',
+     },
     secondary: {
-      main: '#19857b',
+      main: '#00a7c2',
     },
     error: {
       main: red.A400,
     },
+  },
+  typography: {
+    fontFamily: 'Lato',
+    fontWeight: 'normal',
+    fontStyle: 'normal',
   },
 });
 
