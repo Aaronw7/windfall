@@ -8,13 +8,31 @@ import Products from './components/Products';
 function App() {
   const [currentUsers, setCurrentUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState({});
+  const [currentProducts, setCurrentProducts] = useState([]);
+  const [userProducts, setUserProducts] = useState([]);
 
   useEffect(() => {
     fetch('/users').then(res => res.json()).then(data => {
       setCurrentUsers(data);
       setSelectedUser(data[0]);
     });
+
+    fetch('/products').then(res => res.json()).then(data => {
+      setCurrentProducts(data);
+    });
   }, []);
+
+  useEffect(() => {
+    fetch('/purchases').then(res => res.json()).then(data => {
+      let result = [];
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].user_id === selectedUser.id) {
+          result.push(data[i].product_id)
+        }
+      }
+      setUserProducts(result);
+    });
+  }, [selectedUser]);
 
   const handleUserClick = (user) => {
     setSelectedUser(user);
@@ -24,8 +42,8 @@ function App() {
     <Container disableGutters maxWidth='none' align='center' sx={{ overflow: 'auto' }}>
       <Header currentUsers={currentUsers} handleUserClick={handleUserClick}/>
       <Box sx={{ backgroundColor: '#f5f5f5', paddingY: 3 }}>
-        <UserInfo selectedUser={selectedUser}/>
-        <Products />
+        <UserInfo selectedUser={selectedUser} currentProducts={currentProducts} userProducts={userProducts}/>
+        <Products currentProducts={currentProducts}/>
       </Box>
     </Container>
   );

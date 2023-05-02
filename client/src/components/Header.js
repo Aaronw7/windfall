@@ -8,7 +8,7 @@ function Header(props) {
   const isScreenSmall = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Box maxWidth='900px'>
+    <Box maxWidth='900px' marginBottom='15px'>
       <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '70px' }}>
         <img
         alt="Windfall logo"
@@ -28,9 +28,16 @@ function Header(props) {
           }}>
         Application Demo
       </Typography>
-      <Box sx={{ marginLeft: 'auto' }}>
+      <Box>
+        <Typography>Choose User: </Typography>
         {props.currentUsers.map((user, index) => (
-          <ButtonGroup key={user.id} size='small' variant='contained' aria-label='outlined button group'>
+          <ButtonGroup
+            key={user.id}
+            size='small'
+            color='secondary'
+            aria-label='small button group'
+            sx={{ marginX: '2px' }}
+            >
             <Button onClick={() => props.handleUserClick(user)}>{index+1}</Button>
           </ButtonGroup>
         ))}
