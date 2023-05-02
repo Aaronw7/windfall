@@ -36,7 +36,7 @@ function Products(props) {
                 <Typography variant='body1' sx={{ color: theme.palette.primary.alt }}>{item.description}</Typography>
                 <Typography variant='body1' sx={{ color: theme.palette.primary.main, marginY: 2 }}>{item.price}</Typography>
                 {props.userProducts.includes(item.id) ? (
-                  <Button sx={{ color: theme.palette.secondary.alt }} disabled>
+                  <Button disabled style={{ color: theme.palette.secondary.alt }}>
                     OWNED
                   </Button>
                 ) : (
