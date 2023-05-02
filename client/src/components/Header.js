@@ -9,7 +9,14 @@ function Header(props) {
 
   return (
     <Box maxWidth='760px' marginBottom='15px'>
-      <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '70px' }}>
+      <Box
+        sx={{
+          height: '70px',
+          width: isScreenSmall ? '85%' : '100%',
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center'
+          }}>
         <img
         alt="Windfall logo"
         src="https://lever-client-logos.s3.amazonaws.com/8ef9b6bd-44cd-4308-a13b-182a5c0246a2-1577465231891.png"
