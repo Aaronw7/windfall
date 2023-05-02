@@ -23,15 +23,15 @@ function App() {
   }, []);
 
   useEffect(() => {
-    fetch('/purchases').then(res => res.json()).then(data => {
-      let result = [];
-      for (let i = 0; i < data.length; i++) {
-        if (data[i].user_id === selectedUser.id) {
+    if (selectedUser.id) {
+      fetch(`/purchases/${selectedUser.id}`).then(res => res.json()).then(data => {
+        let result = [];
+        for (let i = 0; i < data.length; i++) {
           result.push(data[i].product_id)
         }
-      }
-      setUserProducts(result);
-    });
+        setUserProducts(result);
+      });
+    }
   }, [selectedUser]);
 
   const handleUserClick = (user) => {

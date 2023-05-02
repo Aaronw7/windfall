@@ -45,9 +45,21 @@ def get_products():
         result.append(product_data)
     return jsonify(result)
 
-@app.route('/purchases', methods=['GET'])
-def get_purchases():
-    purchases = Purchase.query.all()
+# @app.route('/purchases', methods=['GET'])
+# def get_purchases():
+#     purchases = Purchase.query.all()
+#     result = []
+#     for purchase in purchases:
+#         purchase_data = {}
+#         purchase_data['id'] = purchase.id
+#         purchase_data['user_id'] = purchase.user_id
+#         purchase_data['product_id'] = purchase.product_id
+#         result.append(purchase_data)
+#     return jsonify(result)
+
+@app.route('/purchases/<int:user_id>', methods=['GET'])
+def get_purchases(user_id):
+    purchases = Purchase.query.filter_by(user_id=user_id).all()
     result = []
     for purchase in purchases:
         purchase_data = {}
