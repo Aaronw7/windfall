@@ -14,7 +14,7 @@ function Products() {
   }, []);
 
   return (
-    <Box align='center' sx={{ backgroundColor: '#f5f5f5', paddingY: 2 }}>
+    <Box align='center' sx={{ marginTop: 3 }}>
       <Stack direction='row' spacing={2} sx={{ justifyContent: 'center' }}>
           {currentProducts && currentProducts.map((item) => (
             <Paper elevation={3} sx={{ paddingX: 1 }}>

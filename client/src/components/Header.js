@@ -15,7 +15,7 @@ function Header() {
         style={{ width: '87.5px', height: '35px', marginRight: '15px' }}
         />
       </Box>
-      <Typography variant='h4' style={{ color: theme.palette.primary.main, height: '70px' }}>
+      <Typography variant='h3' style={{ color: theme.palette.primary.main, height: '70px' }}>
         Application Demo
       </Typography>
     </Box>
