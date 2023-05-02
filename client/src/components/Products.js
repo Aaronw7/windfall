@@ -34,7 +34,7 @@ function Products(props) {
             <Paper key={item.id} elevation={3} sx={{ padding: 1 }}>
                 <Typography variant='h5' sx={{ color: theme.palette.primary.main, marginY: 2, fontWeight: 'bold' }}>{item.name}</Typography>
                 <Typography variant='body1' sx={{ color: theme.palette.primary.alt }}>{item.description}</Typography>
-                <Typography variant='body1' sx={{ color: theme.palette.primary.main, marginY: 2 }}>{item.price}</Typography>
+                <Typography variant='body1' sx={{ color: theme.palette.primary.main, marginY: 2 }}>${item.price}</Typography>
                 {props.userProducts.includes(item.id) ? (
                   <Button disabled style={{ color: theme.palette.secondary.alt }}>
                     OWNED
