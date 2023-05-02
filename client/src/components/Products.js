@@ -17,7 +17,7 @@ function Products() {
     <Box align='center' sx={{ marginTop: 3, maxWidth: '900px' }}>
       <Stack direction='row' spacing={2} sx={{ justifyContent: 'center' }}>
           {currentProducts && currentProducts.map((item) => (
-            <Paper elevation={3} sx={{ paddingX: 1 }}>
+            <Paper key={item.id} elevation={3} sx={{ paddingX: 1 }}>
                 <h2>{item.name}</h2>
                 <p>{item.description}</p>
                 <p>{item.price}</p>

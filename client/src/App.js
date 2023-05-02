@@ -7,19 +7,22 @@ import Products from './components/Products';
 
 function App() {
   const [currentUsers, setCurrentUsers] = useState([]);
-  const [selectedUser, setSelectedUser] = useState([]);
+  const [selectedUser, setSelectedUser] = useState({});
 
   useEffect(() => {
     fetch('/users').then(res => res.json()).then(data => {
-      console.log('sample data: ', data[0])
       setCurrentUsers(data);
       setSelectedUser(data[0]);
     });
   }, []);
 
+  const handleUserClick = (user) => {
+    setSelectedUser(user);
+  }
+
   return (
     <Container disableGutters maxWidth='none' align='center' sx={{ overflow: 'auto' }}>
-      <Header currentUsers={currentUsers}/>
+      <Header currentUsers={currentUsers} handleUserClick={handleUserClick}/>
       <Box sx={{ backgroundColor: '#f5f5f5', paddingY: 3 }}>
         <UserInfo selectedUser={selectedUser}/>
         <Products />

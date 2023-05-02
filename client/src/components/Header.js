@@ -1,9 +1,9 @@
 import React from 'react';
 import Typography from '@mui/material/Typography';
-import { Box, useMediaQuery } from '@mui/material';
+import { Box, ButtonGroup, Button, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-function Header() {
+function Header(props) {
   const theme = useTheme();
   const isScreenSmall = useMediaQuery(theme.breakpoints.down('sm'));
 
@@ -28,6 +28,13 @@ function Header() {
           }}>
         Application Demo
       </Typography>
+      <Box sx={{ marginLeft: 'auto' }}>
+        {props.currentUsers.map((user, index) => (
+          <ButtonGroup key={user.id} size='small' variant='contained' aria-label='outlined button group'>
+            <Button onClick={() => props.handleUserClick(user)}>{index+1}</Button>
+          </ButtonGroup>
+        ))}
+      </Box>
     </Box>
   );
 }
