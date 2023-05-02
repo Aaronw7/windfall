@@ -1,31 +1,51 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import Container from '@mui/material/Container';
+import Header from './components/Header';
+import { Box } from '@mui/material';
+import UserInfo from './components/UserInfo';
+import Products from './components/Products';
 
 function App() {
-  const [currentTime, setCurrentTime] = useState(0);
+  const [currentUsers, setCurrentUsers] = useState([]);
+  const [selectedUser, setSelectedUser] = useState({});
+  const [currentProducts, setCurrentProducts] = useState([]);
+  const [userProducts, setUserProducts] = useState([]);
 
   useEffect(() => {
-    fetch('/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.time);
+    fetch('/users').then(res => res.json()).then(data => {
+      setCurrentUsers(data);
+      setSelectedUser(data[0]);
+    });
+
+    fetch('/products').then(res => res.json()).then(data => {
+      setCurrentProducts(data);
     });
   }, []);
 
+  useEffect(() => {
+    if (selectedUser.id) {
+      fetch(`/purchases/${selectedUser.id}`).then(res => res.json()).then(data => {
+        let result = [];
+        for (let i = 0; i < data.length; i++) {
+          result.push(data[i].product_id)
+        }
+        setUserProducts(result);
+      });
+    }
+  }, [selectedUser]);
+
+  const handleUserClick = (user) => {
+    setSelectedUser(user);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Hello!! Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React Now: {currentTime}
-        </a>
-      </header>
-    </div>
+    <Container disableGutters maxWidth='none' align='center' sx={{ overflow: 'auto' }}>
+      <Header currentUsers={currentUsers} handleUserClick={handleUserClick}/>
+      <Box sx={{ backgroundColor: '#f9f9f9', paddingY: 3 }}>
+        <UserInfo selectedUser={selectedUser} currentProducts={currentProducts} userProducts={userProducts}/>
+        <Products selectedUser={selectedUser} currentProducts={currentProducts} userProducts={userProducts} setUserProducts={setUserProducts}/>
+      </Box>
+    </Container>
   );
 }
 
