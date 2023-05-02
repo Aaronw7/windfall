@@ -27,8 +27,8 @@ function Products(props) {
   };
 
   return (
-    <Box align='center' sx={{ marginTop: 3, maxWidth: '900px' }}>
-      <Grid container spacing={2} justifyContent='center' sx={{ marginTop: 3, maxWidth: '900px' }}>
+    <Box align='center' sx={{ marginTop: 3, maxWidth: '760px' }}>
+      <Grid container spacing={2} justifyContent='center' sx={{ marginTop: 3, maxWidth: '760px' }}>
         {props.currentProducts && props.currentProducts.map((item) => (
           <Grid item xs={12} sm={6} md={4} key={item.id}>
             <Paper key={item.id} elevation={3} sx={{ padding: 1 }}>

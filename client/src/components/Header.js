@@ -8,12 +8,12 @@ function Header(props) {
   const isScreenSmall = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Box maxWidth='900px' marginBottom='15px'>
+    <Box maxWidth='760px' marginBottom='15px'>
       <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '70px' }}>
         <img
         alt="Windfall logo"
         src="https://lever-client-logos.s3.amazonaws.com/8ef9b6bd-44cd-4308-a13b-182a5c0246a2-1577465231891.png"
-        style={{ width: '87.5px', height: '35px', marginLeft: '15px' }}
+        style={{ width: '87.5px', height: '35px' }}
         />
       </Box>
       <Typography

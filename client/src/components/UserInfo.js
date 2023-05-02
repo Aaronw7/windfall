@@ -15,7 +15,7 @@ function UserInfo(props) {
   }
 
   return (
-    <Stack direction='row' spacing={2} sx={{ justifyContent: 'center', height: '200px', maxWidth: '900px' }}>
+    <Stack direction='row' spacing={2} sx={{ justifyContent: 'center', height: '200px', maxWidth: '760px' }}>
       <Box sx={{ width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-end', paddingRight: 3 }}>
         <Typography variant='h5' sx={{ fontSize: isScreenSmall ? '1rem' : '1.75rem', color: theme.palette.primary.main }}>
           Welcome
