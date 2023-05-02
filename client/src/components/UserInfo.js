@@ -1,11 +1,12 @@
 import React from 'react';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { Box, List, ListItem, ListItemText } from '@mui/material';
+import { Box, List, ListItem, ListItemText, useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
 function UserInfo(props) {
   const theme = useTheme();
+  const isScreenSmall = useMediaQuery(theme.breakpoints.down('sm'));
   const items = [];
   for (let i = 0; i < props.currentProducts.length; i++) {
     if (props.userProducts.includes(props.currentProducts[i].id)) {
@@ -16,10 +17,10 @@ function UserInfo(props) {
   return (
     <Stack direction='row' spacing={2} sx={{ justifyContent: 'center', height: '200px', maxWidth: '900px' }}>
       <Box sx={{ width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-end', paddingRight: 3 }}>
-        <Typography variant='h5'>
+        <Typography variant='h5' style={{fontSize: isScreenSmall ? '1rem' : '1.75rem'}}>
           Welcome
         </Typography>
-        <Typography variant='h4' fontWeight='bold' style={{ color: theme.palette.secondary.main }}>
+        <Typography variant='h4' fontWeight='bold' style={{ fontSize: isScreenSmall ? '1.5rem' : '2.5rem', color: theme.palette.secondary.main }} >
           {props.selectedUser.name}
         </Typography>
       </Box>

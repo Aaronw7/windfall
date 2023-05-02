@@ -6,9 +6,11 @@ const theme = createTheme({
   palette: {
     primary: {
       main: '#515357',
+      alt: '#808080'
      },
     secondary: {
       main: '#00a7c2',
+      alt: '#46c200'
     },
     error: {
       main: red.A400,
