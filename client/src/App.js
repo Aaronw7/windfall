@@ -18,7 +18,7 @@ function App() {
   }, []);
 
   return (
-    <Container disableGutters align='center'>
+    <Container disableGutters maxWidth='none' align='center' sx={{ overflow: 'auto' }}>
       <Header currentUsers={currentUsers}/>
       <Box sx={{ backgroundColor: '#f5f5f5', paddingY: 3 }}>
         <UserInfo selectedUser={selectedUser}/>
