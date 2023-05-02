@@ -43,7 +43,7 @@ function App() {
       <Header currentUsers={currentUsers} handleUserClick={handleUserClick}/>
       <Box sx={{ backgroundColor: '#f5f5f5', paddingY: 3 }}>
         <UserInfo selectedUser={selectedUser} currentProducts={currentProducts} userProducts={userProducts}/>
-        <Products currentProducts={currentProducts} userProducts={userProducts}/>
+        <Products selectedUser={selectedUser} currentProducts={currentProducts} userProducts={userProducts} setUserProducts={setUserProducts}/>
       </Box>
     </Container>
   );

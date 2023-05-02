@@ -17,22 +17,22 @@ function UserInfo(props) {
   return (
     <Stack direction='row' spacing={2} sx={{ justifyContent: 'center', height: '200px', maxWidth: '900px' }}>
       <Box sx={{ width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-end', paddingRight: 3 }}>
-        <Typography variant='h5' style={{fontSize: isScreenSmall ? '1rem' : '1.75rem'}}>
+        <Typography variant='h5' sx={{ fontSize: isScreenSmall ? '1rem' : '1.75rem', color: theme.palette.primary.main }}>
           Welcome
         </Typography>
-        <Typography variant='h4' fontWeight='bold' style={{ fontSize: isScreenSmall ? '1.5rem' : '2.5rem', color: theme.palette.secondary.main }} >
+        <Typography variant='h4' fontWeight='bold' sx={{ fontSize: isScreenSmall ? '1.5rem' : '2.5rem', color: theme.palette.secondary.main }} >
           {props.selectedUser.name}
         </Typography>
       </Box>
       <Box sx={{ width: '50%', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' }}>
         <Box>
-          <Typography variant='h6'>
+          <Typography variant='h6' sx={{ color: theme.palette.primary.main }}>
             Products associated with this account:
           </Typography>
           <List sx={{ overflow: 'auto', width: '75%', minWidth: '150px', height: '160px', border: '1px solid black', borderRadius: 1 }}>
             {items.map((item) => (
               <ListItem key={item}>
-                <ListItemText primary={item}/>
+                <ListItemText primary={item} sx={{ color: theme.palette.primary.main }}/>
               </ListItem>
             ))}
           </List>

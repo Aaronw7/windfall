@@ -18,7 +18,7 @@ function Header(props) {
       </Box>
       <Typography
         variant='h3'
-        style={{
+        sx={{
           color: theme.palette.primary.main,
           height: '70px',
           fontSize: isScreenSmall ? '2rem' : '3rem',
@@ -29,7 +29,7 @@ function Header(props) {
         Application Demo
       </Typography>
       <Box>
-        <Typography>Choose User: </Typography>
+        <Typography sx={{ color: theme.palette.primary.alt }}>Choose User: </Typography>
         {props.currentUsers.map((user, index) => (
           <ButtonGroup
             key={user.id}

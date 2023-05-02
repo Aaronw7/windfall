@@ -1,6 +1,6 @@
 import os
 import time
-from flask import Flask, jsonify, send_from_directory
+from flask import Flask, jsonify, send_from_directory, request
 from flask_sqlalchemy import SQLAlchemy
 from models import User, Product, Purchase, db
 
@@ -57,6 +57,11 @@ def get_purchases():
         result.append(purchase_data)
     return jsonify(result)
 
-@app.route('/time')
-def get_current_time():
-    return {'time': time.time()}
+@app.route('/purchases', methods=['POST'])
+def make_purchases():
+    user_id = request.json['user_id']
+    product_id = request.json['product_id']
+    purchase = Purchase(user_id=user_id, product_id=product_id)
+    db.session.add(purchase)
+    db.session.commit()
+    return jsonify({'message': 'Purchase created successfully'})
